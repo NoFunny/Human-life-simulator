@@ -1,5 +1,4 @@
 class Menu
-
   # @param [Object] human
   def draw_state(human)
     puts 'Добро пожаловать в симулятор жизни'
