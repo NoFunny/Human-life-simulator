@@ -12,7 +12,7 @@ class App
     menu = Menu.new
     checks = Check.new
     actions = Actions.new
-    puts 'Введите имя человека'
+    puts 'Введите имя персонажа'
     name = gets
     boundaries = Boundaries.new
     human = Human.new(name)
