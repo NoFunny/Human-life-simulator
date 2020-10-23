@@ -29,5 +29,7 @@ class Menu
     puts '5 - Выпить с маргинальными личностями'
     puts '6 - Петь в метро'
     puts '7 - Спать'
+    puts '8 - Save progress'
+    puts '9 - Load progress'
   end
 end

@@ -15,7 +15,7 @@ Metrics/BlockLength:
     - 'spec/**/*_spec.rb'
 
 Metrics/CyclomaticComplexity:
-  Max: 10
+  Max: 15
 
 Metrics/AbcSize:
   Max: 21
