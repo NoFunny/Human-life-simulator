@@ -56,8 +56,8 @@ class Human
   end
 
   def sleep
-    @health += 90 if human.mana < 30
-    @happiness -= 3 if human.mana > 70
+    @health += 90 if @mana < 30
+    @happiness -= 3 if @mana > 70
     @mana -= 50
     @tired -= 70
   end
