@@ -1,6 +1,6 @@
 class Loop
   def loop(menu, human, checks)
-    while checks.dead?
+    while checks.alive?
       menu.draw(human)
 
       case gets.chomp

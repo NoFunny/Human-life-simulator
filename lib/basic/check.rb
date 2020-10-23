@@ -48,7 +48,7 @@ class Check
     @human.money = -50 if @human.money < -50
   end
 
-  def dead?
+  def alive?
     Cause.new.get_cause_of_dead(@human) unless @human.alive
     @human.alive
   end
