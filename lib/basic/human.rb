@@ -25,6 +25,18 @@ class Human
     }.to_json
   end
 
+  def from_json(string)
+    data = JSON.parse(string)
+    instance = Human.new(data['name'])
+    instance.health = data['health']
+    instance.mana = data['mana']
+    instance.happiness = data['happiness']
+    instance.tired = data['tired']
+    instance.money = data['money']
+    instance.alive = data['alive']
+    instance
+  end
+
   def go_to_work
     @happiness -= 5
     @mana -= 30
