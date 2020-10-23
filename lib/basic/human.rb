@@ -1,14 +1,28 @@
+require 'json'
+
 class Human
   attr_accessor :health, :mana, :happiness, :tired, :money, :alive, :name
 
-  def initialize(name)
+  def initialize(name = 'John Doe')
+    @name = name
+    @alive = true
     @health = 100
     @mana = 0
     @happiness = 0
     @tired = 0
     @money = 100
-    @alive = true
-    @name = name
+  end
+
+  def to_json(*_args)
+    {
+      'name' => @name,
+      'alive' => @alive,
+      'health' => @health,
+      'mana' => @mana,
+      'happiness' => @happiness,
+      'tired' => @tired,
+      'money' => @money
+    }.to_json
   end
 
   def go_to_work
