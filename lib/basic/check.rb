@@ -3,7 +3,7 @@ require_relative 'cause'
 class Check
   attr_accessor :human
 
-  def initialize(human)
+  def initialize(human = Human.new)
     @human = human
   end
 

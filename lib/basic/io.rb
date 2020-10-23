@@ -1,11 +1,13 @@
 require_relative 'human'
 
-def save(file_path, human)
-  File.open(file_path, 'w') do |file|
-    file.puts human.to_json
+def save_progress(human)
+  File.open('resources/data.json', 'w') do |file|
+    file.print human.to_json
   end
 end
 
-def load(file_path)
-  Human.new.from_json(File.open(file_path).readline)
+def load_progress(checks = Check.new)
+  instance = Human.new.from_json(File.open('resources/data.json').readline)
+  checks.human = instance
+  instance
 end
