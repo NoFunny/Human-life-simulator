@@ -1,5 +1,4 @@
 class Cause
-
   def less_health(human)
     human.health.zero?
   end
@@ -16,7 +15,7 @@ class Cause
     human.happiness == -10
   end
 
-  def message(human)
+  def get_cause_of_dead(human)
     print("#{human.name.chomp} не подлечил здоровье и скончался\n") if less_health(human)
     print("#{human.name.chomp} не жалел себя и устал досмерти\n") if very_tired(human)
     print("#{human.name.chomp} перепил и скончался\n") if a_lot_of_mana(human)
