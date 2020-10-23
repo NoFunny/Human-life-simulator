@@ -1,39 +1,24 @@
-require_relative 'cause'
+require_relative 'io'
 
 class Loop
-  # @param [Object] human
-  # @param [Object] checks
-  def loop(human, actions, checks, boundaries)
-    menu = Menu.new
-    cause = Cause.new
-    loop = 1
-    while loop
-      menu.draw_state(human)
-      menu.draw_actions
-      action = gets.chomp
-      case action.to_s
-      when '1'
-        actions.go_to_work(human)
-      when '2'
-        actions.contemplate_nature(human)
-      when '3'
-        actions.drink_wine_and_watch_tv_series(human)
-      when '4'
-        actions.go_to_the_bar(human)
-      when '5'
-        actions.drink_with_marginalized_people(human)
-      when '6'
-        actions.sing_in_the_subway(human)
-        human.money = human.money + 50 if human.mana > 40 && human.mana < 70
-      when '7'
-        actions.sleep(human)
-      else
-        print("Неизвестная команда, #{human.name} не всемогущий")
+  def loop(menu, human, checks)
+    while checks.alive?
+      menu.draw(human)
+
+      case gets.chomp
+      when '1' then human.go_to_work
+      when '2' then human.contemplate_nature
+      when '3' then human.drink_wine_and_watch_tv_series
+      when '4' then human.go_to_the_bar
+      when '5' then human.drink_with_marginalized_people
+      when '6' then human.sing_in_the_subway
+      when '7' then human.sleep
+      when '8' then save_progress(human)
+      when '9' then human = load_progress(checks)
+      else puts("Неизвестная команда, #{human.name} не всемогущий")
       end
-      boundaries.check_boundaries(checks, human)
-      loop = false unless checks.dead?(human)
+
+      checks.checks
     end
-    menu.draw_state(human)
-    cause.message(human)
   end
 end

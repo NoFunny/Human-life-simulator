@@ -1,22 +1,27 @@
 class Menu
-
-  def draw_hello
-    puts 'Добро пожаловать в симулятор жизни'
+  def initialize
+    puts 'Welcome to life simulator !'
   end
 
-  # @param [Object] human
+  def draw(human)
+    puts "\n"
+    draw_state(human)
+    puts "\n"
+    draw_actions
+  end
+
   def draw_state(human)
-    print("       Ваше имя  #{human.name}\n")
-    print("       Ваше здоровье  #{human.health}\n")
-    print("       Ваша мана      #{human.mana}\n")
-    print(" Ваш уровень счастья  #{human.happiness}\n")
-    print("Ваш уровень усталости #{human.tired}\n")
-    print("    Количество денег  #{human.money}\n")
-    print("       Ещё жив?       #{human.alive}\n")
+    print("Name:      #{human.name}\n")
+    print("Health:    #{human.health}\n")
+    print("Mana:      #{human.mana}\n")
+    print("Happiness: #{human.happiness}\n")
+    print("Tired:     #{human.tired}\n")
+    print("Cash:      #{human.money}\n")
+    print("Alive:     #{human.alive ? 'Yes' : 'No'} \n")
   end
 
   def draw_actions
-    puts 'Выберите действие:'
+    puts 'Select action:'
     puts '1 - Пойти на работу'
     puts '2 - Созерцать природу'
     puts '3 - Пить вино и смотреть сериал'
@@ -24,5 +29,7 @@ class Menu
     puts '5 - Выпить с маргинальными личностями'
     puts '6 - Петь в метро'
     puts '7 - Спать'
+    puts '8 - Save progress'
+    puts '9 - Load progress'
   end
 end

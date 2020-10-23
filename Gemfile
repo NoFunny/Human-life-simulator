@@ -11,3 +11,4 @@ gem 'nokogiri'
 gem 'rack', '~> 2.2.3'
 gem 'rspec'
 gem 'rubocop', require: false
+gem 'simplecov'

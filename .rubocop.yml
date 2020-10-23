@@ -12,4 +12,10 @@ Metrics/MethodLength:
 
 Metrics/BlockLength:
   Exclude:
-    - 'test/**/*_spec.rb'
+    - 'spec/**/*_spec.rb'
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 21
