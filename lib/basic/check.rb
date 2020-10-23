@@ -8,12 +8,12 @@ class Check
   end
 
   def checks
-    life_condition
     boundaries_health
     boundaries_mana
     boundaries_happiness
     boundaries_tired
     boundaries_money
+    life_condition
   end
 
   def life_condition
@@ -21,6 +21,7 @@ class Check
     @human.alive = false if @human.tired == 100
     @human.alive = false if @human.mana == 100
     @human.alive = false if @human.happiness == -10
+    @human.alive = false if @human.money == -50
   end
 
   def boundaries_health
@@ -44,7 +45,7 @@ class Check
   end
 
   def boundaries_money
-    @human.money = 0 if @human.money.negative?
+    @human.money = -50 if @human.money < -50
   end
 
   def dead?
