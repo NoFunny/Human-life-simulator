@@ -1,4 +1,4 @@
-require_relative 'io'
+require_relative '../io/io_adapter'
 
 class Loop
   def loop(menu, human, checks)
