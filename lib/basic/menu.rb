@@ -3,11 +3,11 @@ class Menu
     puts 'Welcome to life simulator !'
   end
 
-  def draw(human)
+  def draw_menu(human, actions)
     puts "\n"
     draw_state(human)
     puts "\n"
-    draw_actions
+    draw_actions(actions)
   end
 
   def draw_state(human)
@@ -20,16 +20,10 @@ class Menu
     print("Alive:     #{human.alive ? 'Yes' : 'No'} \n")
   end
 
-  def draw_actions
-    puts 'Select action:'
-    puts '1 - Пойти на работу'
-    puts '2 - Созерцать природу'
-    puts '3 - Пить вино и смотреть сериал'
-    puts '4 - Сходить в бар'
-    puts '5 - Выпить с маргинальными личностями'
-    puts '6 - Петь в метро'
-    puts '7 - Спать'
-    puts '8 - Save progress'
-    puts '9 - Load progress'
+  def draw_actions(actions)
+    counter = 0
+    actions.each do |action|
+      puts "#{counter += 1} - #{action.label}"
+    end
   end
 end
