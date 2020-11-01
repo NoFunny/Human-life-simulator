@@ -8,7 +8,7 @@ def save_progress(human)
   end
 end
 
-def load_progress(checks = Check.new)
+def load_progress(checks = Inspector.new)
   instance = deserialize_human(File.open('resources/data.json').readline)
   checks.human = instance
   instance

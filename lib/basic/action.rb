@@ -2,10 +2,10 @@ def actions_list
   [
     Action.new('go_to_work', 'Пойти на работу'),
     Action.new('contemplate_nature', 'Созерцать природу'),
-    Action.new('drink_wine_and_watch_tv_series', 'Пить вино и смотреть сериалы'),
-    Action.new('go_to_the_bar', 'Сходить в бар'),
+    Action.new('drink_wine_and_watch_series', 'Пить вино и смотреть сериалы'),
+    Action.new('go_to_bar', 'Сходить в бар'),
     Action.new('drink_with_marginalized_people', 'Выпить с маргиналами'),
-    Action.new('sing_in_the_subway', 'Петь в метро'),
+    Action.new('sing_in_subway', 'Петь в метро'),
     Action.new('sleep', 'Спать')
   ]
 end
@@ -42,7 +42,7 @@ class Action
     human.tired += 10
   end
 
-  def drink_wine_and_watch_tv_series(human, flag = nil)
+  def drink_wine_and_watch_series(human, flag = nil)
     return human.money >= 20 if flag
 
     human.happiness -= 1
@@ -52,7 +52,7 @@ class Action
     human.money -= 10
   end
 
-  def go_to_the_bar(human, flag = nil)
+  def go_to_bar(human, flag = nil)
     return human.money >= 100 if flag
 
     human.happiness += 1
@@ -72,7 +72,7 @@ class Action
     human.money -= 150
   end
 
-  def sing_in_the_subway(human, flag = nil)
+  def sing_in_subway(human, flag = nil)
     return flag if flag
 
     human.happiness += 1

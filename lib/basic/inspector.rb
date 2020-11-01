@@ -1,13 +1,13 @@
 require_relative 'cause'
 
-class Check
+class Inspector
   attr_accessor :human
 
   def initialize(human = Human.new)
     @human = human
   end
 
-  def checks
+  def run_inspect
     boundaries_health
     boundaries_mana
     boundaries_happiness
@@ -49,7 +49,6 @@ class Check
   end
 
   def alive?
-    Cause.new.get_cause_of_dead(@human) unless @human.alive
-    @human.alive
+    !@human.alive ? Cause.new.get_cause_of_dead(@human) : @human.alive
   end
 end

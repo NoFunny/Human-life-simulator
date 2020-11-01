@@ -5,11 +5,11 @@ class Human
 
   def initialize(name = 'John Doe')
     @name = name
-    @alive = true
     @health = 100
     @mana = 0
     @happiness = 0
     @tired = 0
     @money = 100
+    @alive = true
   end
 end

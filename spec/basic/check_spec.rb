@@ -1,9 +1,9 @@
 require 'rspec'
-require_relative '../../lib/basic/check'
+require_relative '../../lib/basic/inspector'
 require_relative '../../lib/basic/human'
 
-describe Check do
-  let(:check) { Check.new(Human.new('Pasha')) }
+describe Inspector do
+  let(:check) { Inspector.new(Human.new('Pasha')) }
 
   describe '.life_condition' do
     context 'when health = 0' do
