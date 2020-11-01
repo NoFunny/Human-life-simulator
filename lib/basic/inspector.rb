@@ -14,6 +14,7 @@ class Inspector
     boundaries_tired
     boundaries_money
     life_condition
+    Cause.new.print_cause_of_dead(@human) unless @human.alive
   end
 
   def life_condition
@@ -46,9 +47,5 @@ class Inspector
 
   def boundaries_money
     @human.money = -50 if @human.money < -50
-  end
-
-  def alive?
-    !@human.alive ? Cause.new.get_cause_of_dead(@human) : @human.alive
   end
 end

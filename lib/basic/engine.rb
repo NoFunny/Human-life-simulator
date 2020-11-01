@@ -11,7 +11,7 @@ class Engine
   end
 
   def start
-    while @inspector.alive?
+    while @human.alive
       actions = get_available_actions(@human)
 
       @menu.draw_menu(@human, actions)
