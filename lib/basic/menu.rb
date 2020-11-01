@@ -11,13 +11,11 @@ class Menu
   end
 
   def draw_state(human)
-    print("Name:      #{human.name}\n")
-    print("Health:    #{human.health}\n")
-    print("Mana:      #{human.mana}\n")
-    print("Happiness: #{human.happiness}\n")
-    print("Tired:     #{human.tired}\n")
-    print("Cash:      #{human.money}\n")
-    print("Alive:     #{human.alive ? 'Yes' : 'No'} \n")
+    human.instance_variables.each do |var|
+      label = var[1..].capitalize
+      value = human.instance_variable_get(var)
+      puts format('%<label>-10s: %<value>-10s', label: label, value: value)
+    end
   end
 
   def draw_actions(actions)
