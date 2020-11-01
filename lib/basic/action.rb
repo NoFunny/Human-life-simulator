@@ -26,12 +26,12 @@ class Action
   end
 
   def go_to_work(human, flag = nil)
-    return human.mana < 50 && human.tired > 10 if flag
+    return human.mana < 50 && human.tired < 10 if flag
 
     human.happiness -= 5
     human.mana -= 30
     human.money += 100
-    human.tired -= 5
+    human.tired += 70
   end
 
   def contemplate_nature(human, flag = nil)
@@ -43,17 +43,17 @@ class Action
   end
 
   def drink_wine_and_watch_series(human, flag = nil)
-    return human.money >= 20 if flag
+    return flag if flag
 
     human.happiness -= 1
     human.mana += 30
     human.tired += 10
     human.health -= 5
-    human.money -= 10
+    human.money -= 20
   end
 
   def go_to_bar(human, flag = nil)
-    return human.money >= 100 if flag
+    return flag if flag
 
     human.happiness += 1
     human.mana += 60
@@ -63,7 +63,7 @@ class Action
   end
 
   def drink_with_marginalized_people(human, flag = nil)
-    return human.money >= 150 if flag
+    return flag if flag
 
     human.happiness += 5
     human.health -= 80
