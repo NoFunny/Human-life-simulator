@@ -20,7 +20,7 @@ end
 class Action
   attr_accessor :func, :label
 
-  def initialize(func, label)
+  def initialize(func = '', label = '')
     @func = func
     @label = label
   end
