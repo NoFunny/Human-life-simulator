@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../../lib/basic/inspector'
 require_relative '../../lib/basic/human'
 
-describe Inspector do
+describe 'Inspector' do
   let(:inspector) { Inspector.new(Human.new('Pasha')) }
 
   describe '.life_condition' do
