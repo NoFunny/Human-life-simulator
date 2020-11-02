@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../../../lib/basic/human'
-require_relative '../../../lib/basic/action'
+require_relative '../../lib/basic/human'
+require_relative '../../lib/basic/action'
 
 describe 'ActionMethods' do
   let(:human) { Human.new('Pasha') }
