@@ -1,28 +1,28 @@
-def actions_list
-  [
-    Action.new('go_to_work', 'Пойти на работу'),
-    Action.new('contemplate_nature', 'Созерцать природу'),
-    Action.new('drink_wine_and_watch_series', 'Пить вино и смотреть сериалы'),
-    Action.new('go_to_bar', 'Сходить в бар'),
-    Action.new('drink_with_marginalized_people', 'Выпить с маргиналами'),
-    Action.new('sing_in_subway', 'Петь в метро'),
-    Action.new('sleep', 'Спать')
-  ]
-end
-
-def get_available_actions(human)
-  actions = actions_list
-  actions.each_with_index do |action, index|
-    actions.delete_at(index) unless action.send action.func, human, true
-  end
-end
-
 class Action
   attr_accessor :func, :label
 
   def initialize(func = '', label = '')
     @func = func
     @label = label
+  end
+
+  def actions_list
+    [
+      Action.new('go_to_work', 'Пойти на работу'),
+      Action.new('contemplate_nature', 'Созерцать природу'),
+      Action.new('drink_wine_and_watch_series', 'Пить вино и смотреть сериалы'),
+      Action.new('go_to_bar', 'Сходить в бар'),
+      Action.new('drink_with_marginalized_people', 'Выпить с маргиналами'),
+      Action.new('sing_in_subway', 'Петь в метро'),
+      Action.new('sleep', 'Спать')
+    ]
+  end
+
+  def get_available_actions(human)
+    actions = actions_list
+    actions.each_with_index do |action, index|
+      actions.delete_at(index) unless action.send action.func, human, true
+    end
   end
 
   def go_to_work(human, flag = nil)
