@@ -8,11 +8,12 @@ class Engine
     @human = human
     @menu = Menu.new
     @inspector = Inspector.new(@human)
+    @action = Action.new
   end
 
   def start
     while @human.alive
-      actions = get_available_actions(@human)
+      actions = @action.get_available_actions(@human)
 
       @menu.draw_menu(@human, actions)
       choice = gets.chomp.to_i - 1
