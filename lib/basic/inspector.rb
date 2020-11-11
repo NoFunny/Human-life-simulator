@@ -13,16 +13,9 @@ class Inspector
     boundaries_happiness
     boundaries_tired
     boundaries_money
-    life_condition
-    puts Cause.new.get_cause_of_dead(@human) unless @human.alive
-  end
-
-  def life_condition
-    @human.alive = false if @human.health.zero?
-    @human.alive = false if @human.tired == 100
-    @human.alive = false if @human.mana == 100
-    @human.alive = false if @human.happiness == -10
-    @human.alive = false if @human.money == -50
+    cause = Cause.new.get_cause_of_dead(@human)
+    human.alive = cause == ''
+    puts cause
   end
 
   def boundaries_health
