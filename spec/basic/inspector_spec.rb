@@ -5,6 +5,14 @@ require_relative '../../lib/basic/human'
 describe 'Inspector' do
   let(:inspector) { Inspector.new(Human.new('Pasha')) }
 
+  describe '.run_inspect' do
+    it 'should ' do
+      inspector.human = Human.new('Pasha')
+      inspector.run_inspect
+      expect(inspector.human.alive).to be true
+    end
+  end
+
   describe '.boundaries_health' do
     context 'human.health < 0' do
       it 'human.health should be = 0' do
