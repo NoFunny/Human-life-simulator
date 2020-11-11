@@ -4,14 +4,12 @@ require_relative 'deserialize'
 
 class IOAdapter
   def save_progress(human)
-    File.open('resources/data.json', 'w') do |file|
-      file.print serialize_human(human)
+    File.open("resources/#{Time.new.strftime('%Y-%m-%d[%H:%M:%S]')}.json", 'w') do |file|
+      file.write serialize_human(human)
     end
   end
 
-  def load_progress(checks = Inspector.new)
-    instance = deserialize_human(File.open('resources/data.json').readline)
-    checks.human = instance
-    instance
+  def load_progress(human)
+    deserialize_human(human, File.open('resources/data.json').readline)
   end
 end
