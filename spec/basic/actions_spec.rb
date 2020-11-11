@@ -6,6 +6,16 @@ describe 'ActionMethods' do
   let(:human) { Human.new('Pasha') }
   let(:action) { Action.new }
 
+  it 'constructor' do
+    test_action = Action.new('test_func', 'test_label')
+    expect(test_action.func).to eq('test_func')
+    expect(test_action.label).to eq('test_label')
+  end
+
+  it '.get_available_actions' do
+    expect(action.get_available_actions(human).length).to eq(9)
+  end
+
   it '.go_to_work' do
     action.go_to_work(human)
     expect(human.happiness).to eq(-5)
