@@ -9,7 +9,7 @@ class IOAdapter
 
   def save_progress(human)
     File.open("#{@path}#{Time.new.strftime('%Y-%m-%d[%H:%M:%S]')}.json", 'w') do |file|
-      file.write serialize_human(human)
+      file.write Serialize.new.serialize_human(human)
     end
   end
 
@@ -24,7 +24,7 @@ class IOAdapter
     end
 
     choice = gets.chomp.to_i - 1
-    deserialize_human(human, File.open(saves[choice]).readline)
+    Serialize.new.deserialize_human(human, File.open(saves[choice]).readline)
   end
 
   def available_saves
