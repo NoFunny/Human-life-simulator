@@ -9,7 +9,7 @@ describe 'Deserialize' do
 
   it 'should convert json to obj' do
     Action.new.go_to_bar(human)
-    result = deserialize_human(json)
+    result = deserialize_human(human, json)
 
     expect(result.name).to eq(human.name)
     expect(result.health).to eq(human.health)
