@@ -1,3 +1,5 @@
+require_relative '../io/io_adapter'
+
 class Action
   attr_accessor :func, :label
 
@@ -14,7 +16,9 @@ class Action
       Action.new('go_to_bar', 'Сходить в бар'),
       Action.new('drink_with_marginalized_people', 'Выпить с маргиналами'),
       Action.new('sing_in_subway', 'Петь в метро'),
-      Action.new('sleep', 'Спать')
+      Action.new('sleep', 'Спать'),
+      Action.new('save_progress', 'Сохранить прогресс'),
+      Action.new('load_progress', 'Загрузить прогресс')
     ]
   end
 
@@ -88,5 +92,17 @@ class Action
     human.happiness -= 3 if human.mana > 70
     human.mana -= 50
     human.tired -= 70
+  end
+
+  def save_progress(human, flag = nil)
+    return flag if flag
+
+    IOAdapter.new.save_progress(human)
+  end
+
+  def load_progress(human, flag = nil)
+    return flag if flag
+
+    IOAdapter.new.load_progress(human)
   end
 end
