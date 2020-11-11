@@ -13,4 +13,3 @@ class Deserialize
     human
   end
 end
-

@@ -16,15 +16,14 @@ class IOAdapter
   def load_progress(human)
     saves = available_saves
     puts 'No saves available' if saves.length.zero?
-    counter = 0
 
     puts "\nSelect save:"
-    saves.each do |save|
-      puts "#{counter += 1} - #{save}"
+    saves.each_with_index do |save, index|
+      puts "#{index} - #{save}"
     end
 
-    choice = gets.chomp.to_i - 1
-    Serialize.new.deserialize_human(human, File.open(saves[choice]).readline)
+    choice = gets.chomp.to_i
+    Deserialize.new.deserialize_human(human, File.open(saves[choice]).readline)
   end
 
   def available_saves

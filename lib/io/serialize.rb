@@ -11,4 +11,3 @@ class Serialize
     }.to_json
   end
 end
-
