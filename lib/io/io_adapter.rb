@@ -3,8 +3,12 @@ require_relative 'serialize'
 require_relative 'deserialize'
 
 class IOAdapter
+  def initialize(resources = 'resources/')
+    @path = resources
+  end
+
   def save_progress(human)
-    File.open("resources/#{Time.new.strftime('%Y-%m-%d[%H:%M:%S]')}.json", 'w') do |file|
+    File.open("#{@path}#{Time.new.strftime('%Y-%m-%d[%H:%M:%S]')}.json", 'w') do |file|
       file.write serialize_human(human)
     end
   end
@@ -24,6 +28,6 @@ class IOAdapter
   end
 
   def available_saves
-    Dir['resources/*.json']
+    Dir["#{@path}*.json"]
   end
 end
