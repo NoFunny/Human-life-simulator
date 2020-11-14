@@ -5,37 +5,11 @@ require_relative '../../lib/basic/human'
 describe 'Inspector' do
   let(:inspector) { Inspector.new(Human.new('Pasha')) }
 
-  describe '.life_condition' do
-    context 'when health = 0' do
-      it 'should be dead' do
-        inspector.human.health = 0
-        inspector.life_condition
-        expect(inspector.human.alive).to be false
-      end
-    end
-
-    context 'when tired = 100' do
-      it 'should be dead' do
-        inspector.human.tired = 100
-        inspector.life_condition
-        expect(inspector.human.alive).to be false
-      end
-    end
-
-    context 'when mana = 100' do
-      it 'should be dead' do
-        inspector.human.mana = 100
-        inspector.life_condition
-        expect(inspector.human.alive).to be false
-      end
-    end
-
-    context 'when happiness = -10' do
-      it 'should be dead' do
-        inspector.human.happiness = -10
-        inspector.life_condition
-        expect(inspector.human.alive).to be false
-      end
+  describe '.run_inspect' do
+    it 'should ' do
+      inspector.human = Human.new('Pasha')
+      inspector.run_inspect
+      expect(inspector.human.alive).to be true
     end
   end
 
